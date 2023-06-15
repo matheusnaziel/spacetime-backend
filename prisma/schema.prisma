@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+//Criando(Definindo) as tabelas do bando de dados
+//@id é para definir como a chave primária e recuperar o usuário pelo ID
+//uuid() serve pra gerar automaticamente um id único pra cada usuário universal
+model User {
+  id   String @id @default(uuid())
+  name String
+}
